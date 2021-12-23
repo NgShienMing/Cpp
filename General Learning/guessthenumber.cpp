@@ -15,17 +15,24 @@ int main()
     {
         cout << "Enter guess: ";
         cin >> guess;
-        if (guess > secretNum)
+        guessLimit--;
+        if (guess > secretNum && guessLimit != 0)
         {
             cout << "Guess a smaller number." << endl;
         }
-        else if (guess < secretNum)
+        else if (guess < secretNum && guessLimit != 0)
         {
             cout << "Guess a larger number." << endl;
         }
-        guessLimit--;
         cout << "You have " << guessLimit << " guesses left." << endl;
     }
-    cout << "Secret number is " << secretNum << ". Guess is correct!" << endl;
+    if (guess == secretNum)
+    {
+        cout << "Guess is correct! " << "You win!" << endl;
+    }
+    else
+    {
+        cout << "Secret number is " << secretNum << ". You lose." << endl;
+    }
     return 0;
 }
